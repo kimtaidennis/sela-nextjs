@@ -46,11 +46,13 @@ const Sidebar = () => {
                                     </li>
                                 })
                             }
-                            <li className='flex-center cursor-pointer gap-2 p-4 text-slate-600'><UserButton showName /></li>
+                            <li className='flex items-center px-4 cursor-pointer py-4 text-slate-500'><UserButton showName /></li>
                         </ul>
                     </SignedIn>
                     <SignedOut>
-                        <Button asChild className='button bg-purple-gradient bg-cover'><Link href="/sign-in">Login</Link></Button>        
+                        <Button asChild className='button bg-purple-gradient bg-cover'>
+                            <Link href="/sign-in">Login</Link>
+                        </Button>        
                     </SignedOut>
                 </nav>
             </div>
