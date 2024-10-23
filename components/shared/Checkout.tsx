@@ -2,10 +2,7 @@
 
 import { loadStripe } from "@stripe/stripe-js";
 import { useEffect } from "react";
-
-
 import { checkoutCredits } from "@/lib/actions/transaction.action";
-
 import { Button } from "../ui/button";
 import { useToast } from "@/hooks/use-toast";
 
