@@ -1,4 +1,4 @@
-import { model, models, Schema } from "mongoose";
+import { model, models, Schema,Document } from "mongoose";
 
 export interface IImage extends Document {
     title: string;                             // Required
