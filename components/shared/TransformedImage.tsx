@@ -22,6 +22,7 @@ const TransformedImage = ({ image, type, title, transformationConfig, isTransfor
     return (
         <div className="flex flex-col gap-4">
             <div className="flex-between">
+
                 <h3 className="h3-bold text-dark-600">
                     Transformed
                 </h3>
@@ -56,9 +57,9 @@ const TransformedImage = ({ image, type, title, transformationConfig, isTransfor
                        return setIsTransforming && setIsTransforming(false);
                     }}
                     onError={() => {
-                    debounce(() => {
-                        return setIsTransforming && setIsTransforming(false);
-                    }, 8000)()
+                        debounce(() => {
+                            return setIsTransforming && setIsTransforming(false);
+                        }, 8000)
                     }}
                     {...transformationConfig}
                 />

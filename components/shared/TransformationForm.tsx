@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useTransition } from 'react'
+import React, { useEffect, useState, useTransition } from 'react'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { Button } from "@/components/ui/button"
@@ -109,6 +109,7 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
         setIsSubmitting(true);
 
         if(data || image) {
+
             const transformationUrl = getCldImageUrl({
                 width: image?.width,
                 height: image?.height,
@@ -170,6 +171,12 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
       
         setIsSubmitting(false);
     }
+
+    useEffect(() => {
+            if(image && (type === 'restore' || type === 'removeBackground')) {
+                setNewTransformation(transformationType.config)
+            }
+        }, [image, transformationType.config, type])
 
     return (
         <>
