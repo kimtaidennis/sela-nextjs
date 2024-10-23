@@ -1,13 +1,17 @@
 import { Collection } from "@/components/shared/Collection"
 import { navLinks } from "@/constants"
 import { getAllImages } from "@/lib/actions/image.actions"
+import { auth } from "@clerk/nextjs/server"
 import Image from "next/image"
 import Link from "next/link"
 
 export default async function Home({ searchParams }: SearchParamProps) {
 
+  const { userId } = auth();
+  const id = (!userId) ? '' : userId;
+  
   const page = Number(searchParams?.page) || 1;
-  const searchQuery = (searchParams?.query as string) || '';
+  const searchQuery = (searchParams?.query as string) || id;
 
   const images = await getAllImages({ page, searchQuery})
 
